@@ -24,4 +24,32 @@ BrowserSync (with these TAL addons) allows us to launch a TAL application on a n
 
 ## How do I get it setup?
 
-Coming soon!
+Install [BrowserSync](http://www.browsersync.io/):
+
+`npm install -g browser-sync`
+
+Install the BrowserSync TAL plugin:
+
+`npm install -g https://github.com/rosswilson/browser-sync-tal.git`
+
+Create a config file (you could check this into your application codebase):
+
+```
+# browser-sync.js
+module.exports = {
+    "proxy": "www.my.application.com",
+    "plugins": [
+        "bs-tal"
+    ]
+};
+```
+
+Run BrowserSync:
+
+`browser-sync start --config browser-sync.js`
+
+Point remote devices at `http://YOUR_IP:3000` (e.g. from your TVX page) - this is echoed out in your terminal for convenience. Any keypresses received by the application running on your computer (Chrome/Firefox) will be sent over the network to all connected remote devices.
+
+## Prerequisites
+
+Currently the plugin calls `InputApi.keypress(talKeyCode)` which is expected to be globally available on the remote device. This is a small function that receives a talKeyCode (e.g. VK_UP or VK_LEFT) and bubbles a TAL KeyEvent event.
