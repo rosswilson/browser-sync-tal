@@ -14,7 +14,7 @@ TV applications are built using *TAL*.
 
 BrowserSync (with these TAL addons) allows us to launch a TAL application on a number of remote devices, and then remote-control those devices via a desktop browser.
 
-Use cases:
+## Use cases
 
 * Live feedback of CSS or JS changes
 * Regression testing prior to a release
