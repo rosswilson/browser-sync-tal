@@ -16,7 +16,9 @@
       "Right": "VK_RIGHT",
       "ArrowRight": "VK_RIGHT",
 
-      "Enter": "VK_ENTER"
+      "Enter": "VK_ENTER",
+
+      "U+0008": "VK_BACK"
     }[rawKey];
   };
 
