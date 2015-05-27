@@ -36,6 +36,8 @@
 
     if(normalisedKey) {
       socket.emit("tal:keypress", { talKeyCode: normalisedKey });
+    } else {
+      console.log("Received keypress that isn't configured to be set to the remote device: " + rawKey);
     }
 
   });
