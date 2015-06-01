@@ -1,7 +1,7 @@
 {
-  "name": "bs-tal",
+  "name": "browser-sync-tal",
   "description": "Plugin for BrowserSync to enable TAL app remote-control",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "index.js",
   "devDependencies": {
     "browser-sync": "*"
