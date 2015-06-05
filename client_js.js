@@ -48,14 +48,17 @@
   socket.on("tal:keypress", function (data) {
     var talKeyCode = data.talKeyCode;
 
+    function emitTalKeyPress(keyName) {
+      var Application = require('antie/application');
+      var KeyEvent = require('antie/events/keyevent');
+      var application = Application.getCurrentApplication();
+      application.bubbleEvent(new KeyEvent("keydown", KeyEvent[keyName]));
+      application.bubbleEvent(new KeyEvent("keyup", KeyEvent[keyName]));
+    }
+
     if(talKeyCode) {
       console.log("Triggering a " + talKeyCode + " TAL keypress event");
-
-      if(InputApi.keypress) {
-        InputApi.keypress(talKeyCode);
-      } else {
-        console.error("InputApi.keypress function doesn't exist, cannot send keypress to TAL application!");
-      }
+      emitTalKeyPress(talKeyCode);
     };
 
   });

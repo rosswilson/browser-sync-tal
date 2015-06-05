@@ -1,8 +1,12 @@
 {
   "name": "browser-sync-tal",
   "description": "Plugin for BrowserSync to enable TAL app remote-control",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rosswilson/browser-sync-tal.git"
+  },
   "devDependencies": {
     "browser-sync": "*"
   }
