@@ -1,45 +1,21 @@
 (function (bs) {
   var socket = bs.socket;
 
-  // Map desktop browser key codes to TAL key codes
-  var normaliseKeyValue = function(rawKey) {
-    return {
-      "Up": "VK_UP",
-      "ArrowUp": "VK_UP",
-
-      "Down": "VK_DOWN",
-      "ArrowDown": "VK_DOWN",
-
-      "Left": "VK_LEFT",
-      "ArrowLeft": "VK_LEFT",
-
-      "Right": "VK_RIGHT",
-      "ArrowRight": "VK_RIGHT",
-
-      "Enter": "VK_ENTER",
-
-      "U+0008": "VK_BACK"
-    }[rawKey];
-  };
-
   // Listen for keyup events and send a TAL keypress event over the socket
   document.body.addEventListener("keyup", function(event) {
+    var keyCode = event.keyCode;
 
-    // Different APIs are used across browsers for accessing keypress events
-    if (event.key !== undefined) {
-      rawKey = event.key;
-    } else if (event.keyIdentifier !== undefined) {
-      rawKey = event.keyIdentifier;
-    } else if (event.keyCode !== undefined) {
-      rawKey = event.keyCode;
+    if(antie === undefined) {
+        console.error("window.antie is not defined, are you running browser-sync-tal with a non-TAL application?")
+        return false;
     }
 
-    var normalisedKey = normaliseKeyValue(rawKey);
+    var antieKeyname = antie.framework.deviceConfiguration.input.map[keyCode];
 
-    if(normalisedKey) {
-      socket.emit("tal:keypress", { talKeyCode: normalisedKey });
+    if(antieKeyname) {
+      socket.emit("tal:keypress", { talKeyCode: "VK_" + antieKeyname });
     } else {
-      console.log("Received keypress that isn't configured to be set to the remote device: " + rawKey);
+      console.log("Received keypress that isn't mapped in TAL device config: " + keyCode);
     }
 
   });
