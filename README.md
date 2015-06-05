@@ -47,13 +47,7 @@ Run BrowserSync:
 
 `browser-sync start --config browser-sync.js`
 
-Point remote devices at `http://YOUR_IP:3000` (e.g. from your TVX page) - this is echoed out in your terminal for convenience. Any keypress received by the application running in your desktop browser will be sent over the network to all connected remote devices.
-
-## Prerequisites
-
-Currently the plugin calls `window.InputApi.keypress(talKeyCode)` which is expected to be globally available on the remote device. This is a small function that receives a talKeyCode (e.g. VK_UP or VK_LEFT) and bubbles a TAL KeyEvent event.
-
-If the application that you're controlling supports TalkShow there's a high chance that you already have this function available. Just enable TalkShow for your application (e.g. with a query param) and BrowserSync should Just Work &trade;.
+Point remote devices at the full URL output in your console labeled "External" (e.g. via your TVX page). Any keypress received by the application running in your desktop browser will be sent over the network to all connected remote devices.
 
 ## Notes
 
