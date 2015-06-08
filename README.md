@@ -19,9 +19,13 @@ TV applications are built using *TAL*.
 
  `npm install -g browser-sync`
 
+ > You might need to use `sudo`, depending on how you installed `npm`.
+
 2. Install the [BrowserSync TAL plugin](https://github.com/rosswilson/browser-sync-tal):
 
  `npm install -g browser-sync-tal`
+
+  > You might need to use `sudo`, depending on how you installed `npm`.
 
 3. Create a config file (you could check this into your application codebase):
 
@@ -47,8 +51,8 @@ TV applications are built using *TAL*.
 
 ## Use cases of BrowserSync
 
-* Live feedback of CSS or JS changes
-* Regression testing prior to a release
+* Live feedback of CSS or JS changes.
+* Regression testing prior to a release.
 * Explorative testing, discovering differences between different devices.
 
 ## How does it work?
