@@ -30,7 +30,6 @@ TV applications are built using *TAL*.
 3. Create a config file (you could check this into your application codebase):
 
  ```
- # browser-sync-iplayer.conf
  module.exports = {
      "proxy": "www.bbc.co.uk/iplayer",
      "plugins": [
